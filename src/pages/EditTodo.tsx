@@ -11,7 +11,7 @@ interface Todo {
   userId: number;
 }
 
-// Form state type (we don’t need `id` or `userId` here)
+
 interface TodoForm {
   title: string;
   completed: boolean;
@@ -37,7 +37,7 @@ export default function EditTodo(): React.ReactElement {
     },
   });
 
-  // Local form state
+
   const [form, setForm] = useState<TodoForm | null>(null);
 
   const editTodoMutation = useMutation({
@@ -62,13 +62,13 @@ export default function EditTodo(): React.ReactElement {
   if (isLoading) return <p className="p-4">Loading todo...</p>;
   if (isError) return <p className="p-4 text-red-500">Error loading todo</p>;
 
-  // Initialize form state once todo is fetched
+  
   if (!form && todo) {
     setForm({
       title: todo.title,
       completed: todo.completed,
     });
-    return <p className="p-4">Preparing form...</p>; // avoids rendering null
+    return <p className="p-4">Preparing form...</p>;
   }
 
   if (!form) return <p className="p-4 text-gray-500">No todo data</p>;
@@ -95,7 +95,7 @@ export default function EditTodo(): React.ReactElement {
       id: Number(id),
       title: form.title,
       completed: form.completed,
-      userId: 1, // fake user since API requires it
+      userId: 1, 
     });
   };
 

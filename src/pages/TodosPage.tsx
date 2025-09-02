@@ -11,7 +11,7 @@ interface Todo {
   userId: number;
 }
 
-// Fetch todos with pagination
+
 const fetchTodos = async (page: number): Promise<Todo[]> => {
   const res = await axios.get<Todo[]>(
     `https://jsonplaceholder.typicode.com/todos`,
@@ -52,7 +52,7 @@ export default function TodosPage(): React.ReactElement {
         </Link>
       </div>
 
-      {/* 🔍 Search bar */}
+    
       <div className="mb-4">
         <input
           type="text"
@@ -65,7 +65,7 @@ export default function TodosPage(): React.ReactElement {
 
       {isFetching && <p className="text-gray-500 mb-2">Updating...</p>}
 
-      {/* 📋 List of todos */}
+    
       <ul className="space-y-2">
         {filteredTodos.map((todo) => (
           <li
@@ -82,7 +82,7 @@ export default function TodosPage(): React.ReactElement {
         ))}
       </ul>
 
-      {/* ⏮️ Pagination */}
+      
       <div className="flex justify-between mt-6">
         <button
           onClick={() => setPage((old) => Math.max(old - 1, 1))}
